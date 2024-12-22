@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "outDir": "./build/",
+    "sourceMap": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "incremental": true
+  },
+  "include": [
+    "./src/**/*",
+    "./jest.setup.ts",
+    "./__mocks__/**/*",
+    "./generators",
+    "./gbserver",
+    "./bffserver",
+    "./nodebffserver",
+    "./cmsserver"
+  ],
+  "exclude": ["node_modules", "build", "dist"],
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
