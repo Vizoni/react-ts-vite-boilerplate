@@ -21,20 +21,6 @@
     "baseUrl": "src",
     "incremental": true
   },
-  "include": [
-    "./src/**/*",
-    "./jest.setup.ts",
-    "./__mocks__/**/*",
-    "./generators",
-    "./gbserver",
-    "./bffserver",
-    "./nodebffserver",
-    "./cmsserver"
-  ],
-  "exclude": ["node_modules", "build", "dist"],
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "include": ["./src/**/*", "./jest.setup.ts"],
+  "exclude": ["node_modules", "build", "dist"]
 }
