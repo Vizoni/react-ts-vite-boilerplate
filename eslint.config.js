@@ -44,9 +44,12 @@ export default [
       ...prettier.configs.recommended.rules,
       ...storybook.configs.recommended.rules,
       // Custom rules
-      'no-unused-vars': 'error',
-      'no-undef': 'error',
-      'no-unused-expressions': 'error',
+      // 'no-unused-vars': 'error',
+      // 'no-undef': 'error',
+      // 'no-unused-expressions': 'error',
+      'no-void': 'off',
+      'no-trailing-spaces': 2,
+      'no-restricted-exports': 'off',
       'no-console': [
         'error',
         {
@@ -54,12 +57,9 @@ export default [
         },
       ],
       '@typescript-eslint/no-empty-function': 'off',
-      'no-restricted-exports': 'off',
       '@typescript-eslint/no-var-requires': 'off',
       '@typescript-eslint/ban-types': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
-      'no-void': 'off',
-      'no-trailing-spaces': 2,
       '@typescript-eslint/no-misused-promises': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
@@ -72,9 +72,27 @@ export default [
       'react/destructuring-assignment': 'warn',
       'react/function-component-definition': 'off',
       'react/require-default-props': 'off',
+      'react/jsx-filename-extension': [
+        1,
+        {
+          extensions: ['.js', '.ts', '.tsx'],
+        },
+      ],
+      // 'import/extensions': [
+      //   'error',
+      //   'ignorePackages',
+      //   {
+      //     js: 'never',
+      //     jsx: 'never',
+      //     ts: 'never',
+      //     tsx: 'never',
+      //   },
+      // ],
     },
   },
-  { ignores: ['jest.config.js'] },
+  {
+    ignores: ['jest.config.js', 'jest.setup.ts', ,],
+  },
   {
     settings: {
       react: {

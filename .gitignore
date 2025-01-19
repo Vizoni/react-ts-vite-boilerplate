@@ -11,6 +11,10 @@ node_modules
 dist
 dist-ssr
 *.local
+build
+
+# TypeScript cache
+\*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
@@ -28,3 +32,5 @@ dist-ssr
 
 # Cobertura de testes
 coverage/
+reports
+test-report.xml

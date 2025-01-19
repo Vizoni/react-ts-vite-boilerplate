@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   maxWorkers: 2,
   maxConcurrency: 2,
   preset: 'ts-jest',
@@ -8,7 +8,7 @@ module.exports = {
   automock: false,
   collectCoverageFrom: [
     '<rootDir>/src/contexts/**/*.t(s|sx)',
-    '<rootDir>/src/gbapi/**/*.t(s|sx)',
+    '<rootDir>/src/api/**/*.t(s|sx)',
     '<rootDir>/src/ui/**/*.t(s|sx)',
     '<rootDir>/src/libs/**/*.t(s|sx)',
     '<rootDir>/src/utils/**/*.t(s|sx)',
@@ -27,26 +27,18 @@ module.exports = {
     },
   },
   transform: {
-    '\\.(ts|tsx)$': [
-      'ts-jest',
-      {
-        diagnostics: {
-          exclude: ['**'],
-        },
-      },
-      { isolatedModules: true },
-    ],
+    '\\.(ts|tsx)$': ['ts-jest', { isolatedModules: true }],
     '^.+\\.js$': 'babel-jest',
   },
   collectCoverage: true,
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts', '@testing-library/jest-dom'],
   coverageReporters: ['lcov'],
   coverageDirectory: './reports',
-  moduleFileExtensions: ['tsx', 'ts', 'json', 'js'],
+  moduleFileExtensions: ['tsx', 'ts', 'json', 'js', 'jsx'],
   testRegex: '\\.test\\.(ts|tsx|js)$',
   moduleNameMapper: {
     '\\.svg$': '<rootDir>/__mocks__/svg.tsx',
     '\\.png$': '<rootDir>/__mocks__/png.tsx',
   },
-  testResultsProcessor: 'jest-sonar-reporter',
+  // testResultsProcessor: 'jest-sonar-reporter',
 };
