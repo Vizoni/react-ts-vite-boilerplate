@@ -32,5 +32,6 @@ build
 
 # Cobertura de testes
 coverage/
-reports
+reports/
 test-report.xml
+\*.lcov
