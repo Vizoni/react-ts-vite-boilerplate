@@ -1,7 +1,7 @@
+import jestPlugin from 'eslint-plugin-jest';
 import pluginJs from '@eslint/js';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import typescriptEslintParser from '@typescript-eslint/parser';
-
 import prettier from 'eslint-plugin-prettier';
 import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
@@ -16,7 +16,10 @@ export default [
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   {
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.jest, // Adiciona os globals do Jest
+      },
       ecmaVersion: 'latest',
       sourceType: 'module',
       parser: typescriptEslintParser,
@@ -34,6 +37,7 @@ export default [
       prettier,
       'simple-import-sort': simpleImportSort,
       storybook,
+      jest: jestPlugin, // Adiciona o plugin do Jest
     },
   },
   {
@@ -43,10 +47,11 @@ export default [
       ...typescriptEslint.configs.recommended.rules,
       ...prettier.configs.recommended.rules,
       ...storybook.configs.recommended.rules,
+      ...jestPlugin.configs.recommended.rules, // Usa as regras recomendadas do Jest
       // Custom rules
-      // 'no-unused-vars': 'error',
-      // 'no-undef': 'error',
-      // 'no-unused-expressions': 'error',
+      'no-unused-vars': 'error',
+      'no-undef': 'error',
+      'no-unused-expressions': 'error',
       'no-void': 'off',
       'no-trailing-spaces': 2,
       'no-restricted-exports': 'off',
@@ -78,42 +83,16 @@ export default [
           extensions: ['.js', '.ts', '.tsx'],
         },
       ],
-      // 'import/extensions': [
-      //   'error',
-      //   'ignorePackages',
-      //   {
-      //     js: 'never',
-      //     jsx: 'never',
-      //     ts: 'never',
-      //     tsx: 'never',
-      //   },
-      // ],
     },
   },
   {
-    ignores: ['jest.config.js', 'jest.setup.ts', ,],
+    ignores: ['jest.config.js', 'jest.setup.ts'],
   },
   {
     settings: {
       react: {
         version: 'detect',
       },
-    },
-  },
-  {
-    files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
-    rules: {
-      'simple-import-sort/imports': [
-        'error',
-        {
-          groups: [
-            ['^@testing-library(?!/?$)', '^react$', '^@react(?!/?$)', '^@'],
-            ['^context', '^routes', '^utils', '^ui', '__mocks__'],
-            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-            ['^\\.(?!/?$)', '^\\./?$'],
-          ],
-        },
-      ],
     },
   },
 ];

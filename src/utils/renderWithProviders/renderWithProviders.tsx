@@ -1,5 +1,5 @@
 import { render, type RenderOptions } from '@testing-library/react';
-import { StrictMode, type ReactElement, type ReactNode } from 'react';
+import { type ReactElement, type ReactNode, StrictMode } from 'react';
 
 const Providers = ({ children }: { children: ReactNode }) => (
   <StrictMode>

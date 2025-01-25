@@ -2,7 +2,6 @@ import { renderWithProviders } from 'utils/renderWithProviders';
 
 import { Home } from './Home';
 
-
 const setup = () => renderWithProviders(<Home />);
 
 describe('Home', () => {
