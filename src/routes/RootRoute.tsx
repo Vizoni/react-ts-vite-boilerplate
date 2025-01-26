@@ -10,7 +10,7 @@ function ErrorBoundary({ children }: { children: React.ReactNode }) {
   try {
     return <>{children}</>;
   } catch (error) {
-    return <div>Erro ao carregar a página</div>;
+    return <div>Erro ao carregar a página!</div>;
   }
 }
 

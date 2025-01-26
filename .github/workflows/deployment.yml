@@ -4,6 +4,7 @@ on:
       - 'main'
       - 'homolog'
       - 'develop'
+  workflow_dispatch:
 
 name: Standard CI
 jobs:
@@ -29,5 +30,15 @@ jobs:
         run: yarn prettier-check
       - name: Test
         run: yarn test:coverage
-      - name: Build
-        run: yarn build
+      - name: Build project
+        run: echo "Building..." && yarn build
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: [ci]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy
+        run: echo "Deploying..."
