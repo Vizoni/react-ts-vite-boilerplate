@@ -1,5 +1,5 @@
 export const Home = () => (
   <div>
-    <h1>Home</h1>
+    <h1>Nova home</h1>
   </div>
 );
